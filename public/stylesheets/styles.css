@@ -1,4 +1,31 @@
+/* 
+Logical Properties Cheatsheet (TO BE DELETED)
+
+affects width?  = inline
+affects height? = block
+
+inline {
+    start = left
+    end   = right
+}
+
+block {
+    start = top
+    end   = bottom
+}
+*/
+
 /* ==================== GLOBAL ==================== */
+:root {
+    --light-green: #A8C686;
+    --yellow: #E6B85C;
+    --pink: #D98268;
+
+    --bg-color: #111B18;
+    --surface: #1B2923;
+    --elevated: #293A30;
+}
+
 *,
 *::before,
 *::after {
@@ -8,13 +35,29 @@
 }
 
 body {
+    color: white;
     font-family: sans-serif;
+    background-color: var(--bg-color);
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+    max-inline-size: 100%;
+    block-size: auto;
+}
+
+input {
+    border: var(--light-green) solid 1px;
+    background-color: var(--elevated);
+    color: white;
+    border-radius: 100px;
+    padding: 1rem;
+    block-size: 40px;
+}
+
+hr {
+    margin-block: 1.5rem;
+    margin-inline: 1rem;
+    border: 0.5px solid var(--light-green);
 }
 
 a {
@@ -23,40 +66,77 @@ a {
 }
 
 /* ==================== NAVBAR ==================== */
+header {
+    padding-block: 1rem;
+    background-color: var(--bg-color);
+}
+
 nav {
     display: flex;
     align-items: center;
-    background-color: #292929;
-    z-index: 100;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
 }
 
 .nav-links {
     display: flex;
+    align-items: center;
+    justify-content: center;
     list-style-type: none;
+    column-gap: 0.8rem;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 1rem;
+}
+
+.main-nav ul {
+    a {
+        padding: 0.7rem;
+        transition: 0.2s;
+
+        &:hover {
+            background-color: var(--elevated);
+            border-radius: 0.5rem;
+        }
+    }
+}
+
+.tabs {
+    margin-inline: 1.5rem;
+
+    ul {
+        column-gap: 2.5rem;
+    }
+
+    img {
+        block-size: 18px;
+        inline-size: auto;
+    }
 
     a {
         display: flex;
-        padding: 1rem;
+        justify-content: center;
+        color: white;
+        text-decoration-color: transparent;
+        transition: 0.2s;
+        gap: 0.6rem;
+        align-items: center;
 
-        &:hover {
-            background-color: #111;
+        &:hover,
+        &:focus {
+            text-decoration: underline wavy var(--light-green) 1.5px;
+            text-underline-offset: 8px;
         }
     }
 }
 
 search {
     display: flex;
-    margin-right: 1rem;
+    justify-content: center;
+    inline-size: 40%;
 
-    input,
-    button {
-        padding: 0.3rem;
-        border-radius: 6px;
+    input {
+        inline-size: 100%;
     }
 }
