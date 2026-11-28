@@ -15,7 +15,11 @@ block {
 }
 */
 
-/* ==================== GLOBAL ==================== */
+/* 
+==========================================================================
+    GLOBAL
+==========================================================================
+*/
 :root {
     --light-green: #A8C686;
     --yellow: #E6B85C;
@@ -24,6 +28,8 @@ block {
     --bg-color: #111B18;
     --surface: #1B2923;
     --elevated: #293A30;
+
+    --light-green-hover: #B9D49A;
 }
 
 *,
@@ -36,7 +42,7 @@ block {
 
 body {
     color: white;
-    font-family: sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--bg-color);
 }
 
@@ -45,29 +51,71 @@ img {
     block-size: auto;
 }
 
-input {
+input,
+button {
+    font: inherit;
+}
+
+input:is([type="text"], [type="email"], [type="password"]) {
     border: var(--light-green) solid 1px;
     background-color: var(--elevated);
     color: white;
-    border-radius: 100px;
-    padding: 1rem;
-    block-size: 40px;
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
 }
 
 hr {
     margin-block: 1.5rem;
-    margin-inline: 1rem;
-    border: 0.5px solid var(--light-green);
+    border: 0;
+    border-block-start: 1px solid var(--light-green);
 }
 
 a {
     color: white;
-    text-decoration: none;
+    text-decoration: underline wavy var(--light-green) 1.5px;
+    text-underline-offset: 1px;
+    transition: 0.2s;
+
+    &:hover {
+        color: var(--light-green);
+        text-underline-offset: 5px;
+    }
 }
 
-/* ==================== NAVBAR ==================== */
+/* 
+==========================================================================
+    UTILITY CLASSES
+==========================================================================
+*/
+.btn {
+    padding: 0.85rem 1.5rem;
+    background-color: var(--light-green);
+    border: 0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    color: var(--bg-color);
+    text-decoration: none;
+
+    &:hover {
+        background-color: var(--light-green-hover);
+    }
+
+    &:active {
+        background-color: rgb(from var(--light-green-hover) r g b / 0.8);
+    }
+}
+
+/* 
+==========================================================================
+    NAVBAR
+==========================================================================
+*/
 header {
     padding-block: 1rem;
+    margin-inline: 1rem;
     background-color: var(--bg-color);
 }
 
@@ -85,26 +133,27 @@ nav {
 }
 
 .main-nav {
-    display: flex;
     justify-content: space-between;
-    margin-inline: 1rem;
 }
 
 .main-nav ul {
     a {
+        text-decoration: none;
         padding: 0.7rem;
-        transition: 0.2s;
 
         &:hover {
+            color: white;
             background-color: var(--elevated);
-            border-radius: 0.5rem;
+            border-radius: 1rem;
+        }
+
+        &:active {
+            background-color: var(--surface);
         }
     }
 }
 
 .tabs {
-    margin-inline: 1.5rem;
-
     ul {
         column-gap: 2.5rem;
     }
@@ -116,12 +165,9 @@ nav {
 
     a {
         display: flex;
-        justify-content: center;
         color: white;
         text-decoration-color: transparent;
-        transition: 0.2s;
         gap: 0.6rem;
-        align-items: center;
 
         &:hover,
         &:focus {
@@ -133,10 +179,39 @@ nav {
 
 search {
     display: flex;
-    justify-content: center;
     inline-size: 40%;
 
     input {
         inline-size: 100%;
+    }
+}
+
+/* 
+==========================================================================
+    LOGIN / SIGNUP
+==========================================================================
+*/
+.auth fieldset {
+    display: grid;
+    margin-inline: auto;
+    inline-size: 50vw;
+    padding: 2rem;
+
+    legend {
+        padding: 0.2rem 0.5rem;
+        background-color: white;
+        border-radius: 10px;
+        color: var(--bg-color);
+        margin-inline: 1rem;
+        /* font-size: xx-large; */
+        font-weight: bold;
+    }
+
+    input {
+        margin-block-end: 1rem;
+    }
+
+    button {
+        margin-block: 1rem;
     }
 }
