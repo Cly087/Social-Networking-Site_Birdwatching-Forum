@@ -30,6 +30,7 @@ block {
     --elevated: #293A30;
 
     --light-green-hover: #B9D49A;
+    --light-green-active: #97AF7F;
 }
 
 *,
@@ -76,7 +77,7 @@ a {
     text-underline-offset: 1px;
     transition: 0.2s;
 
-    &:hover {
+    &:hover:not(.btn-primary, .btn-secondary) {
         color: var(--light-green);
         text-underline-offset: 5px;
     }
@@ -84,14 +85,14 @@ a {
 
 /* 
 ==========================================================================
-    UTILITY CLASSES
+    COMPONENT CLASSES
 ==========================================================================
 */
-.btn {
-    padding: 0.85rem 1.5rem;
+.btn-primary {
+    padding: 0.75rem;
     background-color: var(--light-green);
     border: 0;
-    border-radius: 10px;
+    border-radius: 1rem;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
@@ -104,7 +105,21 @@ a {
     }
 
     &:active {
-        background-color: rgb(from var(--light-green-hover) r g b / 0.8);
+        background-color: var(--light-green-active);
+    }
+}
+
+.btn-secondary {
+    text-decoration: none;
+    padding: 0.75rem;
+
+    &:hover {
+        background-color: var(--elevated);
+        border-radius: 1rem;
+    }
+
+    &:active {
+        background-color: var(--surface);
     }
 }
 
@@ -122,6 +137,7 @@ header {
 nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .nav-links {
@@ -130,27 +146,6 @@ nav {
     justify-content: center;
     list-style-type: none;
     column-gap: 0.8rem;
-}
-
-.main-nav {
-    justify-content: space-between;
-}
-
-.main-nav ul {
-    a {
-        text-decoration: none;
-        padding: 0.7rem;
-
-        &:hover {
-            color: white;
-            background-color: var(--elevated);
-            border-radius: 1rem;
-        }
-
-        &:active {
-            background-color: var(--surface);
-        }
-    }
 }
 
 .tabs {
@@ -203,7 +198,7 @@ search {
         border-radius: 10px;
         color: var(--bg-color);
         margin-inline: 1rem;
-        /* font-size: xx-large; */
+        font-size: x-large;
         font-weight: bold;
     }
 

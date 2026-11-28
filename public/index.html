@@ -12,7 +12,7 @@
     <header>
         <!-- NAVBAR -->
         <nav class="main-nav">
-            <a href="#"><img src="https://placehold.co/200x50?text=Logo" alt="brand logo"></a>
+            <h1><a href="#"><img src="https://placehold.co/200x50?text=Logo" alt="brand logo"></a></h1>
 
             <!-- Search Bar -->
             <search>
@@ -21,8 +21,8 @@
 
             <!-- User Registration and Login -->
             <ul class="nav-links">
-                <li><a href="#login">Login</a></li>
-                <li><a href="#register" class="btn">Register</a></li>
+                <li><a href="#login" class="btn-secondary">Login</a></li>
+                <li><a href="#register" class="btn-primary">Register</a></li>
             </ul>
         </nav>
 
@@ -41,7 +41,7 @@
         <section id="browse">
         </section>
 
-        <section id="search">
+        <section id="content-search">
         </section>
 
         <section id="following">
@@ -50,7 +50,9 @@
         <!-- USER LOGIN -->
         <section id="login" class="auth">
             <fieldset>
-                <legend><h1>Log In</h1></legend>
+                <legend>
+                    <h2>Log In</h2>
+                </legend>
                 <!-- Email -->
                 <label for="email">Email</label>
                 <input type="email" id="email">
@@ -61,7 +63,7 @@
                 <input type="password" id="password">
                 <p id="password-error"></p>
 
-                <button class="btn">Log In</button>
+                <button class="btn-primary">Log In</button>
                 <p>New here? <a href="#register">Click to register.</a></p>
             </fieldset>
         </section>
